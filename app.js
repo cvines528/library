@@ -35,25 +35,31 @@ function render() {
     //loop through library array
     let cardDisplay = document.querySelector(".card")
     for(let i = 0; i < library.length; i++){
-        for(let prop in library[i]){
-            let title;
+        let title;
             let author;
             let pages;
             let read;
+            
+        for(let prop in library[i]){
+            
             if(prop === "title"){
                 title = library[i][prop]
             } else if (prop === "author"){
                 author = library[i][prop];
             } else if (prop === "pages"){
                 pages = library[i][prop]
-            } else if (prop === read) {
+            } else if (prop === "read") {
                 read = library[i][prop]
             }
-            console.log(title)
-            console.log(author)
-            console.log(pages)
-            console.log(read)
         }
+        titleHeader = document.createElement("h1");
+        authorHeader = document.createElement("h2")
+        authorText = document.createTextNode(author);
+        titleText = document.createTextNode(title);
+        titleHeader.appendChild(titleText);
+        authorHeader.appendChild(authorText);
+        cardDisplay.appendChild(titleHeader);
+        cardDisplay.appendChild(authorHeader)
     }
     //each iteration take each key:value pair and display it on html with title as the header1 author as header 2 pages as header 3 and read as button which can be clicked read or not read
 
