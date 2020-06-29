@@ -22,13 +22,6 @@ function Books(title, author, pages, read) {
     this.author = author
     this.pages = pages
     this.read = read
-    this.info = function() {
-        if(this.read == true){
-            return `${this.title} by ${this.author}, ${this.pages} pages, have read.`;
-        } else {
-            return `${this.title} by ${this.author}, ${this.pages} pages, have not read yet.`;
-        }
-    }
 }
 
 function render() {
@@ -50,16 +43,28 @@ function render() {
                 pages = library[i][prop]
             } else if (prop === "read") {
                 read = library[i][prop]
+                if(read !== true){
+                    readText = document.createTextNode("Not Read");
+                } else {
+                    readText = document.createTextNode("Read");
+                }
             }
         }
         titleHeader = document.createElement("h1");
-        authorHeader = document.createElement("h2")
+        authorHeader = document.createElement("h2");
+        pagesHeader = document.createElement("p");
+        readHeader = document.createElement("button");
         authorText = document.createTextNode(author);
         titleText = document.createTextNode(title);
+        pagesText = document.createTextNode(pages);
         titleHeader.appendChild(titleText);
         authorHeader.appendChild(authorText);
+        pagesHeader.appendChild(pagesText);
+        readHeader.appendChild(readText);
         cardDisplay.appendChild(titleHeader);
-        cardDisplay.appendChild(authorHeader)
+        cardDisplay.appendChild(authorHeader);
+        cardDisplay.appendChild(pagesHeader);
+        cardDisplay.appendChild(readHeader);
     }
     //each iteration take each key:value pair and display it on html with title as the header1 author as header 2 pages as header 3 and read as button which can be clicked read or not read
 
