@@ -29,9 +29,9 @@ function render() {
     let cardDisplay = document.querySelector(".card")
     for(let i = 0; i < library.length; i++){
         let title;
-            let author;
-            let pages;
-            let read;
+        let author;
+        let pages;
+        let read;
             
         for(let prop in library[i]){
             
@@ -69,6 +69,37 @@ function render() {
     //each iteration take each key:value pair and display it on html with title as the header1 author as header 2 pages as header 3 and read as button which can be clicked read or not read
 
 }
+
+// Get Modal element
+
+let modal = document.getElementById('addBookModal');
+// Get open modal button
+let modalBtn = document.getElementById('modalBtn');
+// Get close button
+let closeBtn = document.getElementById('closeBtn');
+
+// Listen for open click
+modalBtn.addEventListener('click', openModal);
+// Listen for close click
+closeBtn.addEventListener('click', closeModal);
+// Listen for outsideclick
+window.addEventListener('click', outsideClick);
+
+// Function to open modal
+function openModal(){
+ modal.style.display = 'block';
+}
+// Function to close modal
+function closeModal(){
+ modal.style.display = 'none';
+}
+
+// Function to close modal window click
+function outsideClick(e){
+    if(e.target == modal){
+    modal.style.display = 'none';
+    }
+   }
 
 function addBooksToLibrary() {
 
