@@ -29,15 +29,45 @@ body {
 .formContent {
     background-color: #f4f4f4;
     margin: 20% auto;
-    padding: 20px;
-    width: 70%;
+    width: 30%;
     box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px 0 rgba(0,0,0,0.2);
     animation-name:modalopen;
     animation-duration: 0.1s;
 }
 
+.form-header {
+    background: skyblue;
+    color: white;
+    padding: 15px;
+}
+
+.form-header h2, .form-submit button {
+    margin: 0;
+}
+
+.form-body {
+    padding: 10px 20px;
+}
+
+.form-submit button{
+    background: skyblue;
+    padding: 1em 2em;
+    color: white;
+    border: 0;
+    width: 100%;
+    font-size: 18px;
+}
+.form-submit button:hover{
+    background: white;
+    padding: 1em 2em;
+    color: skyblue;
+    border: 0;
+    width: 100%;
+    font-size: 18px;
+}
+
 .closeBtn {
-    color: darkgray;
+    color: white;
     float: right;
     font-size: 30px;
 }

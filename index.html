@@ -13,8 +13,27 @@
             <button id="modalBtn" class="addBookBtn">Add Book</button>
             <div id="addBookModal" class="modal">
                 <div class="formContent">
-                    <span id="closeBtn" class="closeBtn">&times;</span>
-                    <p>hello</p>
+                    <div class="form-header">
+                        <span id="closeBtn" class="closeBtn">&times;</span>
+                        <h2>Add New Book</h2>
+                    </div>
+                    <div class="form-body">
+                        <form>
+                            <label for="book-title">Title:</label><br>
+                            <input type="text" id="book-title" name="book-title"><br>
+                            <label for="author">Author:</label><br>
+                            <input type="text" id="author" name="author"><br>
+                            <label for="pages"># of Pages:</label><br>
+                            <input type="text" id="pages" name="pages"><br>
+                            <label for="read">Read</label>
+                            <input type="radio" id="read" name="read" value="read">
+                            <label for="not-read">Not Read</label>
+                            <input type="radio" id="not-read" name="read" value="not-read">
+                        </form>
+                    </div>
+                    <div class="form-submit">
+                        <button class="submit">Submit</button>
+                    </div>
                 </div>
             </div>
         </div>
