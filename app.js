@@ -24,6 +24,52 @@ function Books(title, author, pages, read) {
     this.read = read
 }
 
+// Get Modal element
+
+let modal = document.getElementById('addBookModal');
+// Get open modal button
+let modalBtn = document.getElementById('modalBtn');
+// Get close button
+let closeBtn = document.getElementById('closeBtn');
+
+// Listen for open click
+modalBtn.addEventListener('click', openModal);
+// Listen for close click
+closeBtn.addEventListener('click', closeModal);
+// Listen for outsideclick
+window.addEventListener('click', outsideClick);
+
+// Function to open modal
+function openModal(){
+ modal.style.display = 'block';
+}
+// Function to close modal
+function closeModal(){
+ modal.style.display = 'none';
+}
+
+// Function to close modal window click
+function outsideClick(e){
+    if(e.target == modal){
+    modal.style.display = 'none';
+    }
+   }
+
+   let newBookForm = document.getElementById("addBookForm");
+   newBookForm.addEventListener("submit", addBooksToLibrary);
+// Add books to library
+function addBooksToLibrary(e) {
+    e.preventDefault();
+    let newTitle = document.getElementById("book-title").value;
+    let newAuthor = document.getElementById("author").value;
+    let newPages = document.getElementById("pages").value;
+    let newRead = document.getElementById("read").value;
+    let newBook = new Books(newTitle, newAuthor, newPages,newRead);
+    library.push(newBook);
+    console.log('form has been submitted');
+    console.log(library)
+}
+
 function render() {
     //loop through library array
     let cardDisplay = document.querySelector(".card")
@@ -70,39 +116,7 @@ function render() {
 
 }
 
-// Get Modal element
 
-let modal = document.getElementById('addBookModal');
-// Get open modal button
-let modalBtn = document.getElementById('modalBtn');
-// Get close button
-let closeBtn = document.getElementById('closeBtn');
 
-// Listen for open click
-modalBtn.addEventListener('click', openModal);
-// Listen for close click
-closeBtn.addEventListener('click', closeModal);
-// Listen for outsideclick
-window.addEventListener('click', outsideClick);
-
-// Function to open modal
-function openModal(){
- modal.style.display = 'block';
-}
-// Function to close modal
-function closeModal(){
- modal.style.display = 'none';
-}
-
-// Function to close modal window click
-function outsideClick(e){
-    if(e.target == modal){
-    modal.style.display = 'none';
-    }
-   }
-
-function addBooksToLibrary() {
-
-}
 
 render()

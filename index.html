@@ -18,7 +18,7 @@
                         <h2>Add New Book</h2>
                     </div>
                     <div class="form-body">
-                        <form>
+                        <form class="form" id="addBookForm">
                             <label for="book-title">Title:</label><br>
                             <input type="text" id="book-title" name="book-title"><br>
                             <label for="author">Author:</label><br>
@@ -29,11 +29,12 @@
                             <input type="radio" id="read" name="read" value="read">
                             <label for="not-read">Not Read</label>
                             <input type="radio" id="not-read" name="read" value="not-read">
+                            <div class="form-submit">
+                                <button type="submit" id="book-submit"class="submit">Submit</button>
+                            </div>
                         </form>
                     </div>
-                    <div class="form-submit">
-                        <button class="submit">Submit</button>
-                    </div>
+                   
                 </div>
             </div>
         </div>
