@@ -62,8 +62,19 @@ function addBooksToLibrary(e) {
     e.preventDefault();
     let newTitle = document.getElementById("book-title").value;
     let newAuthor = document.getElementById("author").value;
-    let newPages = document.getElementById("pages").value;
-    let newRead = document.getElementById("read").value;
+    let newPages = Number(document.getElementById("pages").value);
+    let readOptions = document.querySelectorAll('input[name = read]');
+    let newRead;
+    for(const option of readOptions) {
+        if(option.checked){
+            newRead = option.value;
+            if (newRead === 'read'){
+                newRead = true;
+            } else {
+                newRead = false;
+            }
+        }
+    }
     let newBook = new Books(newTitle, newAuthor, newPages,newRead);
     library.push(newBook);
     console.log('form has been submitted');
@@ -96,13 +107,15 @@ function render() {
                 }
             }
         }
+        let newDiv = document.createElement('div');
+        newDiv.classlist.add(`card-${i}`);
         titleHeader = document.createElement("h1");
         authorHeader = document.createElement("h2");
         pagesHeader = document.createElement("p");
         readHeader = document.createElement("button");
         authorText = document.createTextNode(author);
         titleText = document.createTextNode(title);
-        pagesText = document.createTextNode(pages);
+        pagesText = document.createTextNode(`pages: ${pages}`);
         titleHeader.appendChild(titleText);
         authorHeader.appendChild(authorText);
         pagesHeader.appendChild(pagesText);
